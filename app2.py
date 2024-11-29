@@ -35,16 +35,6 @@ if st.button("Search"):
             st.write("### Context Information:")
             st.text_area("Context", context_text, height=200)
 
-            # Chat prompt template
-            chat_prompt_template = ChatPromptTemplate.from_messages([
-                ("system", """You are a friendly AI bot. You answer users' queries based on the following context:
-                ###CONTEXT INFORMATION###{context}You should provide a detailed answer as per the provided CONTEXT INFORMATION only.
-                You should not justify your answer using any information not provided in CONTEXT INFORMATION.
-                You should not provide information not mentioned in the CONTEXT INFORMATION.
-                Do not say 'according to the CONTEXT INFORMATION' or similar."""),
-                ("human", "Based on the CONTEXT INFORMATION, answer the following user question:{question}"),
-            ])
-
             st.success("Query processed successfully!")
         except Exception as e:
             st.error(f"Error processing query: {e}")
